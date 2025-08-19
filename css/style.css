@@ -15,25 +15,31 @@
 body{
     height: 100vh;
     font-family: "Montserrat", sans-serif;
-    
     display: grid;
+   
+    background-color: var(--lightm-background);
+}
+
+body#homepage {
     grid-template-areas: 
     'header header'
     'main main'
     'footer footer';
     gap: 5%;
-    background-color: var(--lightm-background);
 }
+
+
 body > * {
     padding: 1%;
 }
 header{
     grid-area: header;
-
+   
     display: grid;
     grid-template-areas: 'top-card top-card nav';
 
     background-color: var(--lightm-background);
+   
 }
 #top-card {
     grid-area: top-card;
@@ -74,7 +80,7 @@ article{
     display: grid;
     grid-template-areas: 'main image';
     align-items: center;
-    
+    max-width: 100%;
 }
 
 #intro{
@@ -86,6 +92,7 @@ article{
 
 #intro h1{
     font-family: "Roboto Serif", serif;
+    font-size: 3em;
     color: var(--lightm-lightblue);
     margin-bottom: 3%;
 }
@@ -100,9 +107,95 @@ section > p{
 #my-pic{
     grid-area: image;
     border-radius: 2%;
-    border: 2px solid;
+    border: 2px var(--white) solid;
+    min-width: 40%;
     max-width: 60%;
     margin-left: 25%;
+}
+
+
+
+/* About page */
+body#aboutpage{
+    grid-template-areas: 
+    'header header'
+    'main main'
+    'footer footer';
+}
+section#aboutme {
+    margin: 5% 10% 5% 10%;
+    padding: 4% 5% 4% 5%;
+    background-color: var(--lightm-background-lighter);
+    grid-area: main;
+    display: grid;
+    grid-template-areas: 
+    'about about'
+    'about about'
+    'about about'
+    'hobby hobby'
+    'hobby hobby'
+    'goals goals' 
+    'goals goals' ;
+}
+
+.aboutDetail{
+    padding: 1%;
+    grid-area: about;
+    display: grid;
+    grid-template-areas: 
+    'aboutTitle'
+    'aboutDetail'
+    'aboutDetail';    
+    margin-bottom: 4%;
+    border-radius: 10px;
+}
+
+.aboutDetail h1{
+    grid-area: aboutTitle;
+    font-size: 2rem;
+    color: var(--lightm-lightblue);
+}
+
+.aboutDetail p{
+    grid-area: aboutDetail;
+}
+
+.hobby {
+    padding: 1%;
+    grid-area: hobby;
+    display: grid;
+    grid-template-areas: 
+    'hobbyTitle'
+    'hobbyDetail';
+    margin-bottom: 4%;
+    border-radius: 10px;    
+}
+
+.hobby h3 {
+    grid-area: hobbyTitle;
+}
+
+.hobby ul {
+    grid-area: hobbyDetail;
+    list-style-type: none;
+}
+
+.goals {
+    padding: 1%;
+    grid-area: goals;
+    display: grid;
+    grid-template-areas: 
+    'goalsTitle'
+    'goalsDetail';
+    border-radius: 10px;
+
+}
+.goals h3{
+    grid-area: goalsTitle;
+}
+
+.goals p{
+    grid-area: goalsDetail;
 }
 
 footer{
@@ -123,17 +216,26 @@ footer{
 }
 
 .reactive{
-    transition: 200ms;
+    transition: 300ms;
 }
 
 .reactive-img:hover {
-    scale: 110%;
+    scale: 105%;
+
+}
+
+#my-pic.reactive-img:hover {
+    border: 2px var(--lightm-lightblue) solid;
 }
 
 .reactive-textbox:hover {
     background-color: var(--white);
     color: var(--lightm-background);
+    font-weight: bold;
 }
+
+
+
 @media screen and (max-width: 768px){
     header{
         grid-template-areas: 'top-card top-card top-card'
@@ -157,7 +259,9 @@ footer{
         'main main';
         
     }
-
+    #intro h1{
+        font-size: 2em;
+    }
     #my-pic{
         margin-left: 20%;
     }
@@ -165,6 +269,7 @@ footer{
     .reactive-textbox:active {
         background-color: var(--white);
         color: var(--lightm-background);
+        font-weight: bold;
     }
 
     .reactive-img:active {
