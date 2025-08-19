@@ -4,83 +4,151 @@
   margin: 0;
   box-sizing: border-box;
 }
+:root {
+    --lightm-background: #232730;
+    --lightm-background-lighter: #3A3E47;
+    --lightm-background-highlight: #434c61;
+    --lightm-lightblue: #04ACB5;
+    --white: #EDEDED; 
+}
+
+body{
+    height: 100vh;
+    font-family: "Montserrat",sans-serif;
+    
+    display: grid;
+    grid-template-areas: 
+    'header header'
+    'main main'
+    'footer footer';
+    gap: 5%;
+    background-color: var(--lightm-background);
+}
+body > * {
+    padding: 1%;
+}
+header{
+    grid-area: header;
+
+    display: grid;
+    grid-template-areas: 'top-card top-card nav';
+
+    background-color: var(--lightm-background);
+}
+#top-card {
+    grid-area: top-card;
+    color: var(--lightm-lightblue);
+}
+
+nav {
+    grid-area: nav;
+    display: flex;
+    align-items: top;
+    justify-content: space-around;
+}
+
+nav a{
+    text-align: center;
+    height: 50%;
+    padding: 1%;
+    margin: 2%;
+    text-decoration: none;
+    color: var(--white);
+}
+
+nav a:active{
+    color: var(--lightm-lightblue);
+    background-color: var(--white);
+}
+
+article{
+    grid-area: main;
+    display: grid;
+    grid-template-areas: 'main image';
+    align-items: center;
+    
+}
+
+#intro{
+    grid-area: main;
+    color: var(--white);
+    padding: 8%;
+
+}
+
+#intro h1{
+    color: var(--lightm-lightblue);
+    margin-bottom: 1%;
+}
+
+section > p{
+    padding: 10%;
+    background-color: var(--lightm-background-highlight);
+    border-radius: 2%;
+
+}
+
+#my-pic{
+    grid-area: image;
+    border-radius: 2%;
+    border: 2px solid;
+    max-width: 60%;
+    margin-left: 25%;
+}
+
+footer{
+    display: flex;
+    align-self: end;
+
+    height: 10vh;
+    max-height: 12vh;
+    grid-area: footer;
+    justify-content: center;
+    align-items: center;
+    
+    text-align: center;
+    font-size: smaller;
+
+    background-color: var(--lightm-background-lighter);
+    color: var(--white);
+}
+
+.reactive{
+    transition: 200ms;
+}
+
+.reactive-img:hover {
+    scale: 110%;
+}
+
+.reactive-textbox:hover {
+    background-color: var(--white);
+    color: var(--lightm-background);
+}
 @media screen and (max-width: 768px){
-    body{
-
-
-        height: 100vh;
-        font-family: "Montserrat",sans-serif;
-       
-        display: grid;
-        grid-template-areas: 
-        'header header'
-        'main main'
-        'footer footer';
-        gap: 20%;
-
-        background-color: #232730;
-    }
-    body > * {
-        padding: 1%;
-    }
     header{
-        grid-area: header;
+        grid-template-areas: 'top-card top-card top-card'
+        'nav nav nav';
+        gap: 10%;        
+    }
 
-        display: grid;
-        grid-template-areas: 'top-card top-card nav';
-
-        background-color: #232730;
-    }
-    #top-card {
-        grid-area: top-card;
-        color: #04ACB5;
-    }
-    nav {
-        grid-area: nav;
-        display: flex;
-        align-items: top;
-        justify-content: space-around;
-    }
     nav a{
-        text-align: center;
-        height: 50%;
-        text-decoration: none;
-        color: white;
+        border-bottom: var(--white) solid 2px; 
     }
-    nav a:active{
-        color: #04ACB5;
-        background-color: white;
+
+    #top-card{
+        justify-self: center;
+        align-self: center;
     }
+
     article{
-        grid-area: main;
-        display: grid;
-        grid-template-areas: 'main image';
-    }
-    #intro{
-        grid-area: main;
-        color: #EDEDED;
+      
+        grid-template-areas: 'image image'
+        'main main';
+        
     }
 
-    #intro h1{
-        color: #04ACB5;
-    }
-    
     #my-pic{
-        grid-area: image;
-        border-radius: 2%;
-        border: 2px solid;
-        max-width: 100%;
+        margin-left: 20%;
     }
-    footer{
-        display: flex;
-        grid-area: footer;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        font-size: smaller;
-
-        background-color: #3A3E47;
-        color: #EDEDED;
-    }
-    
 }
