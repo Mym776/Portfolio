@@ -181,6 +181,7 @@ section#aboutme {
     list-style-type: none;
 }
 .hobby dt + dd{
+    font-size: 0.9rem;
     padding-left: 20px;
 }
 .goals {
