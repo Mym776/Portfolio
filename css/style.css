@@ -173,13 +173,16 @@ section#aboutme {
 
 .hobby h3 {
     grid-area: hobbyTitle;
+    
 }
 
-.hobby ul {
+.hobby dl {
     grid-area: hobbyDetail;
     list-style-type: none;
 }
-
+.hobby dt + dd{
+    padding-left: 20px;
+}
 .goals {
     padding: 1%;
     grid-area: goals;
@@ -233,8 +236,16 @@ footer{
     color: var(--lightm-background);
     font-weight: bold;
 }
+.reactive-textbox:hover h1, .reactive-textbox:hover h3{
+    text-decoration: underline;
+}
 
 
+
+.reactive-textbox:hover dd{
+  
+    font-weight: normal;
+}
 
 @media screen and (max-width: 768px){
     header{
