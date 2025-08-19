@@ -240,12 +240,16 @@ footer{
     text-decoration: underline;
 }
 
-
-
-.reactive-textbox:hover dd{
-  
-    font-weight: normal;
+.reactive-list:hover {
+    background-color: var(--white);
+    color: var(--lightm-background);
 }
+.reactive-list:hover dt, .reactive-list:hover h3{
+
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 
 @media screen and (max-width: 768px){
     header{
