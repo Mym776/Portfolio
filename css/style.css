@@ -81,6 +81,8 @@ article{
     grid-template-areas: 'main image';
     align-items: center;
     max-width: 100%;
+    animation: anim 1s forwards;
+
 }
 
 #intro{
@@ -148,6 +150,7 @@ section#aboutme {
     'aboutDetail';    
     margin-bottom: 4%;
     border-radius: 10px;
+    animation: anim 1s forwards;
 }
 
 .aboutDetail h1{
@@ -169,6 +172,8 @@ section#aboutme {
     'hobbyDetail';
     margin-bottom: 4%;
     border-radius: 10px;    
+    animation: anim 2s forwards;
+
 }
 
 .hobby h3 {
@@ -192,6 +197,7 @@ section#aboutme {
     'goalsTitle'
     'goalsDetail';
     border-radius: 10px;
+    animation: anim 4s forwards;
 
 }
 .goals h3{
@@ -202,21 +208,298 @@ section#aboutme {
     grid-area: goalsDetail;
 }
 
+/* portfolio page */
+
+.portfolioPage {
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    'header header'
+    'pain pmain'
+    'footer footer';
+}
+
+.portfolioMain {
+    grid-area: pmain;
+    background-color: var(--lightm-background-highlight);
+    margin: 5%;
+    padding: 2% 5%;
+   
+    display: grid;
+    grid-template-areas: 
+    'edu edu edu'
+    'proj proj proj'
+    'skill skill skill';
+
+}
+
+.education {
+    display: grid;
+    gap: 10%;
+    grid-area: edu;
+    grid-template-areas: 
+    'eduTitle eduTitle'
+    'eduTable eduTable';
+    animation: anim 1s forwards;
+}
+.education h2 {
+    grid-area: eduTitle;
+    
+}
+.education table {
+    
+    grid-area: eduTable;
+    align-self: center;
+    justify-self: center;
+    width: 40%;
+    background-color: var(--white);
+    border-collapse: collapse;
+    border: 1px solid;
+}
+.education td + td {
+   border-left: 1px solid;
+}
+.education th {
+    background-color: var(--lightm-lightblue);
+    border: 1px solid
+}
+.education td, .education th {
+    padding: 1%;
+}
+.projects {
+    grid-area: proj;
+    display: grid;
+    grid-template-areas: 
+    'projtitle projtitle projtitle'
+    'projCard projCard projCard'
+    'projCard projCard projCard';
+    margin: 2% 0%;
+    animation: anim 2s forwards;
+
+}
+
+.projects h2 {
+    grid-area: projtitle;
+
+}
+.projCards {
+    grid-area: projCard;
+    display: grid;
+    grid-template-areas: 'p1 p2 p3';
+    justify-content: space-evenly;
+}
+.projCards article{
+    display: grid;
+    grid-template-areas: 
+    'img'
+    'title'
+    'desc'
+    'link';
+    background-color: var(--white);
+   
+    height: 100%;
+    margin: 1%;
+    padding: 1%;
+    border-radius: 1%;
+
+}
+.projCards * {
+    margin: 1%;
+}
+.projCards article img {
+    grid-area: img;
+}
+.projCards article h3 {
+    grid-area: title;
+}
+.projCards article p {
+    grid-area: desc;
+}
+.projCards article img {
+    justify-self: center;
+    grid-area: img;
+    width: 80%;
+}
+.projCards .plink {
+    grid-area: link;
+}
+.p1 {
+    grid-area: p1;
+}
+.p2 {
+    grid-area: p2;
+}
+.p3 {
+    grid-area: p3;
+}
+
+.skills {
+    grid-area: skill;
+    display: grid;
+    grid-template-areas: 
+    'title1 title1'
+    'cards1 cards1';
+}
+
+.skills h3{
+    grid-area: title1;
+    margin-bottom: 2%;
+}
+
+.skills ul{
+    list-style: none;
+    grid: cards1;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+@keyframes anim {
+  0%{ 
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.skills li{
+    animation: anim 4s forwards;
+    display: grid;   
+    padding: 2%;
+    background-color: var(--white); 
+    border-radius: 2%;
+    max-width: 100%;
+}
+.skills li img{
+    width: 60%;
+    justify-self: center;
+}
+.skills li p{
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.contactpage {
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    'header header'
+    'cmain caside'
+    'footer footer';
+    gap: 10px;
+}
+
+.contactMain {
+    padding: 0px;
+    margin-left: 2%;
+    grid-area: cmain;
+    display: grid;
+    grid-template-areas:
+    'cform' ;
+}
+.cform {
+    grid-area: cform;
+    width: 100%;
+    height: 100%;
+    
+    justify-self: center;
+    background-color: var(--lightm-background-lighter);
+    color: var(--white);
+    display: grid;
+    grid-template-areas: 
+    'label1 label1'
+    'input input'
+    'label2 label2'
+    'em em'
+    'button button';
+    gap: 15px;
+
+    padding: 2%;
+   
+    border-radius: 4px;
+}
+#l1 {
+    grid-area: label1;
+}
+
+#ta {
+    margin-left: 2%;
+    grid-area: input;
+    width: 50%;
+    min-width: 300px;
+}
+
+#l2 {
+    grid-area: label2;
+}
+#email {
+    margin-left: 2%;
+    grid-area: em;
+    width: 250px;
+    height: 30px;
+}
+button {
+    justify-self: center;
+    grid-area: button;
+    width: 70px;
+    height: 40px;
+    border: none;
+    border-radius: 4%;
+    background-color: var(--lightm-lightblue);
+    color: var(--white);
+}
+
+.socials {
+    justify-self: right;
+    grid-area: caside;
+    display: grid;
+    grid-template-rows: auto;
+    background-color: var(--white);
+    
+    width: 50%;
+    height: 80%;
+    margin: 2%;min-width: 300px;
+    padding: 3%;
+}
+.socials h3{
+    color: var(--lightm-lightblue);
+    font-size: 2em;
+    text-decoration: underline;
+    margin-bottom: 30px;
+}
+.socials div {
+    margin-top: 5%;
+}
+.socials div div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+}
+
 footer{
     display: flex;
     align-self: end;
-
+    flex-direction: column;
     height: 10vh;
     max-height: 12vh;
     grid-area: footer;
     justify-content: center;
     align-items: center;
-    
+    gap: 10px;
     text-align: center;
     font-size: smaller;
 
     background-color: var(--lightm-background-lighter);
     color: var(--white);
+}
+
+.fsocials {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
 }
 
 .reactive{
@@ -269,6 +552,7 @@ footer{
         align-self: center;
     }
 
+
     article{
       
         grid-template-areas: 'image image'
@@ -282,6 +566,33 @@ footer{
         margin-left: 20%;
     }
 
+    
+    .education table{
+        width: 70%;
+        margin-bottom: 10%;
+    }
+    
+    .projCards{
+        grid-template-areas: 'p1'
+        'p2'
+        'p3';
+        gap: 10px;
+        margin: 10%;
+    }
+    .socials{
+        display: none;
+    }
+    .contactpage {
+        display: grid;
+        grid-template-areas: 
+        'header header'
+        'cmain cmain'
+        'footer footer';
+        padding: 2%;
+    }
+   .fsocials {
+    width: 50%;
+   }
     .reactive-textbox:active {
         background-color: var(--white);
         color: var(--lightm-background);
