@@ -1,6 +1,6 @@
 <script>
 	import favicon from '$lib/assets/favicon.svg';
-
+	import Name from './App.svelte';
 	let { children } = $props();
 </script>
 
@@ -9,3 +9,4 @@
 </svelte:head>
 
 {@render children()}
+<Name />
