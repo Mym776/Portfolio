@@ -5,14 +5,18 @@
 	let { children } = $props();
 
 	let st = $state(["biking","golfing","swimming"])
-
+	let colors = $state(["blue","red","green","grey","brown"])
 	function s (){
 		let temp = st.shift()
         st.push(temp)
+		temp = colors.shift()
+		colors.push(temp)
+		temp = colors.shift()
+		colors.push(temp)
 		
+
 	}
 	setInterval(s, 3000);
-
 </script>
 
 <svelte:head>
@@ -22,9 +26,10 @@
 
 <Name />
 <div>
-	<Tile hobby={st[0]}/>
-	<Tile hobby={st[1]}/>
-	<Tile hobby={st[2]}/>	
+	{#each st as h}
+	<Tile hobby={h} color={colors[0]}/>
+	{/each}
+		
 </div>
 
 <style>
